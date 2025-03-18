@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route Component={DefaultLayout}>
             <Route path='/' Component={Films} />
-            <Route path='/films/:id' Component={SingleFilm} />
+            <Route path='/movie/:id' Component={SingleFilm} />
           </Route>
         </Routes>
       </BrowserRouter>
