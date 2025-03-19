@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 
 import RewiewCard from "../components/ReviewCard"
 
+import ReviewForm from "../components/ReviewForm"
+
 export default function SingleFilm() {
 
     const { id } = useParams()
@@ -40,6 +42,10 @@ export default function SingleFilm() {
             <section>
                 <h4>Our community reviews</h4>
                 {renderReviews()}
+            </section>
+
+            <section>
+                {movie?.id && <ReviewForm movie_id={movie.id} reloadReviews={fetchMovies} />}
             </section>
         </>
 
