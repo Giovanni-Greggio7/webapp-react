@@ -1,12 +1,16 @@
 import MovieCard from "../components/MovieCard"
 import axios from "axios"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import GlobalContext from '../contexts/globalContext';
 
 export default function Films() {
 
     const [movie, setMovie] = useState([])
 
+    const { setIsLoading } = useContext(GlobalContext)
+
     const fetchMovies = () => {
+
         console.log('Fetching movies...')
 
         axios
@@ -17,6 +21,7 @@ export default function Films() {
             .catch((error) => {
                 console.log(error)
             })
+            .then(() => setIsLoading(false))
     }
 
     const renderMovies = () => {
@@ -41,5 +46,7 @@ export default function Films() {
         </>
     )
 }
+
+
 
 
